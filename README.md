@@ -4,6 +4,9 @@ Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel va
 The TSL1402R linear photodiode array optical sensor:
 http://ams.com/eng/Products/Light-Sensors/Linear-Array/TSL1402R
 
+TSL1402R PDF Datasheet:
+http://ams.com/chi/content/download/250165/975693/file/TSL1402R_DS000147_2-00.pdf
+
 Processing home page (Processing is used to plot the sensor data):
 https://processing.org/
 
