@@ -115,9 +115,11 @@ There is some Processing subpixel resolution code as well from thingiverse.com f
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
 
-I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left green circle and right red circle, and the rough subpixel center location as a white circle. 
+I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. 
 
-The original samples must be spread out on the screen for the subpixel location to reveal any additional accuracy. WIDTH_PER_PT sets the number of screen pixels drawn on the screen for each data point, which determines the spacing between real data points.
+The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big. 
+
+WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. With this higher than 2, we start to see subpixels resolve better. A future version could narrow the displayed region of interest, so one can zoom in on the subpixels with more screen resolution without the entire Processing display window being wider than the screen. 
 
 I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. 
 
