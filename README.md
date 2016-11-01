@@ -39,7 +39,7 @@ We send each pixel value as a byte pair rather than character strings to shrink 
 Prior to sending the data over Serial, we shift the bits of each 2 byte word to the left 2 places (multiply by 4) to leave room for 255 as a unique prefix sync byte to sync the receiver to sender. 
 This shift does not drop bits because the data ADC samples are only 12 bits wide. We have 4 "spare" bits in the 16 bit word. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte.
 
-On the Processing app, after parsing the data stream into frames by using the sync byte, we shift the bits in each word to the right 2 places (divide by 4), to restore the original word values, prior to displaying them.
+On the Processing app, after parsing the data stream into frames using the sync byte as a delimiter, we shift the bits in each word to the right 2 places (divide by 4), to restore the original word values, prior to displaying them.
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
