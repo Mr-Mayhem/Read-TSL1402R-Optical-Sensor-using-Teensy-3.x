@@ -104,8 +104,13 @@ The processing app can't keep up without inserting a few milliseconds delay in t
 
 The serial connection seems blasing fast to me compared to Arduino, of course. The frame number is a blur.
 
-The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
-redrawing the screen from Serial event instead, last time I tried this approach it was much more sluggish, but I suspect my sync bit was being falsified by the data at the time.
+The Processing sketch is pretty stripped-for-speed as it is, but the design polls the serial object in the loop for available bytes; not the most efficient thing one would think. 
+
+I want to retry using noLoop() in Setup(), and redraw() the screen in serialEvent() instead. 
+
+The last time I tried this approach it was sluggish, but I suspect that during my last attempt to do it this way, my sync bit was being falsified by data bytes having the same value. Maybe it will work nice and fast this time. 
+
+Perhaps someone out there has a more definitive answer on which drawing approach in Processing is faster and more efficient, assuming both methods are programmed properly, and given a fair comparison?
 
 ===============================================================================================================================
 Processing Subpixel Resolution Notes:
