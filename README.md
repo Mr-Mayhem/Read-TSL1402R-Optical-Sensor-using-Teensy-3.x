@@ -117,8 +117,8 @@ Processing Subpixel Resolution Notes:
 ===============================================================================================================================
 
 There is some Processing subpixel resolution code as well from thingiverse.com filament width sensor projects:
-see https://www.thingiverse.com/thing:454584 original work
-and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
+see https://www.thingiverse.com/thing:454584 an original thingiverse project,
+and https://www.thingiverse.com/thing:704897 which is a remix of the original thingiverse project, from which I got the subpixel code for Processing.
 
 I do not fully understand the formula used to calculate the center and what species of math it is, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses that forumla to estimate the center. The original estimated the width of the notch, not the center as my mods do. I want center because I am not concerned with width, but the position of the shadow relative to the pixels.
 
