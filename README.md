@@ -109,6 +109,9 @@ I commented the subpixel code out because it was slowing the framerate alot and 
 
 I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
+===============================================================================================================================
+Final thoughts:
+===============================================================================================================================
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
