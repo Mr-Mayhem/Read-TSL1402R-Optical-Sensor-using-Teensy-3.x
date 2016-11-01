@@ -106,7 +106,7 @@ The serial connection seems blasing fast to me compared to Arduino, of course. T
 
 The Processing sketch is pretty stripped-for-speed as it is, but the design polls the serial object in the loop for available bytes; not the most efficient thing one would think. 
 
-I want to retry using noLoop() in Setup(), and redraw() the screen in serialEvent() instead. 
+I want to retry using noLoop() in Setup(), and redraw() the screen in serialEvent() instead, using the sync byte for the readUntil trigger.
 
 The last time I tried this approach it was sluggish, but I suspect that during my last attempt to do it this way, my sync bit was being falsified by data bytes having the same value. Maybe it will work nice and fast this time. 
 
