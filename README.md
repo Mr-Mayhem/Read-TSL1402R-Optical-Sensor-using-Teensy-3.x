@@ -124,9 +124,9 @@ I draw the subpixel related graphics in my own way. It highlights the 2 steepest
 
 The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big. 
 
-WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. With this higher than 2, we start to see subpixels resolve better. A future version could narrow the displayed region of interest, so one can zoom in on the subpixels with more screen resolution without the entire Processing display window being wider than the screen. 
+WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. With this higher than 2, we start to see the subpixel center location resolve better. A future version could narrow the displayed region of interest, so one can zoom in on the subpixels with more screen resolution without the entire Processing display window ending up being wider than the screen. 
 
-I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. 
+I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong, or need to add the zoom-in feature to give it more screen pixels to snap to in-between the original data points.
 
 I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
