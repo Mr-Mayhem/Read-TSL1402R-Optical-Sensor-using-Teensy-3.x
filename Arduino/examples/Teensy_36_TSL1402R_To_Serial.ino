@@ -56,9 +56,8 @@ void initADC()
     //adc->enableCompare(1.0/3.3*adc->getMaxValue(ADC_1), 0, ADC_1); // measurement will be ready if value < 1.0V
     //adc->enableCompareRange(1.0*adc->getMaxValue(ADC_1)/3.3, 2.0*adc->getMaxValue(ADC_1)/3.3, 0, 1, ADC_1); // ready if value lies out of [1.0,2.0] V
     #endif
-
 }
-
+// arguments are CLKpin, SIpin, Apin1, Apin2
 TSL1402R Sensor(CLKpin, SIpin, Apin1, Apin2);  //sensor object
 
 void setup() 
@@ -68,7 +67,8 @@ void setup()
   Sensor.ExposureMicroseconds = 500;
 }
 
-void loop() {
+void loop() 
+{
   delayMicroseconds(1750);
   Sensor.read(sensorByteArray, 512);
   Serial.write(PREFIX); // PREFIX
