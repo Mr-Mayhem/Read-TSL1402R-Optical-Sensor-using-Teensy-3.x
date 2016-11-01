@@ -30,7 +30,7 @@ Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, co
 ===============================================================================================================================
 Installation:
 ===============================================================================================================================
-Wire the sensor to a Teensy on a breadboard, according to http://playground.arduino.cc/Main/TSL1402R and/or consult the schematics in the TSL1402R datasheet, link above.
+Wire the sensor to a Teensy on a breadboard, according to http://playground.arduino.cc/Main/TSL1402R and/or consult the schematics in the TSL1402R datasheet, link above. Use the parallel circuit.
 
 Change each pin assignment in the code carefully to match your wiring and model of Teensy. Teensy 3.6 is what I set the pins to originally and thus needs no changes in the code, but the wires from Teensy 3.x to the sensor chip still need to connect to the sensor correctly, of course.
 
