@@ -38,7 +38,7 @@ In Arduino IDE, clicking File/Preferences brings up a dialog showing settings an
 Copy the library folder TSL1402R and its files directly into your Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
 
 Then copy the Arduino and Processing sketches into the usual places, for example:
---------------------------------------------------------------------------------------------------
+
 Your Arduino Sketchbook Location/Teensy_36_TSL1402R_To_Serial/Teensy_36_TSL1402R_To_Serial.ino 
 --------------------------------------------------------------------------------------------------
 Your Processing Sketchbook Location/Teensy_36_TSL1402R_To_Serial/Teensy_36_TSL1402R_To_Serial.pde
