@@ -46,7 +46,11 @@ http://playground.arduino.cc/Main/TSL1402R
 
 Exposure time:
 You can set the exposure time by adjusting a delayMicroseconds() in the code.
-Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further. See the datasheet for recommended upper and lower exposure limits.
+Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. 
+
+I witnessed this artifact in the original Arduino code cited above, and it may also be caused by the sequential not simultaneous reading of the pixel pairs, as the read crosses the center pixel, or some other subtle timing issue. I also noted the original code was not following the data sheet timing diagram in the sense that clock and SI pulse are staggered in a specific sequence, as shown in this code but not in the original Adruino example. This artifact disappeared on my Teensy. 
+
+I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further because of the higher brighness involved. See the datasheet for recommended upper and lower exposure limits. The shorter the delay, the lower the readout for given brightness, and the faster the sensor framerate.
 
 ===============================================================================================================================
 General Notes:
