@@ -3,7 +3,8 @@ Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel va
 
 This includes a Teensy-centric Arduino class library for reading the sensor.
 
-Tested on Teensy 3.6 OK and fast!
+Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
+in the Teensy 3.6 loop.
 
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" of the sensor datasheet example, and thus 2 pixels are presented to the ADC for reading at a time. 
 
