@@ -38,7 +38,7 @@ Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cy
 I am somewhere around 300ish frames per sec, limited by the Processing sketch.
 There's always room for improvement. 
 
-Fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic for driving the sensor chip at a steady 5 mhz. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2mhz, see:
+Fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2 Mhz, see:
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 
 Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
@@ -54,7 +54,7 @@ General Notes:
 
 Tested on Teensy 3.6, it works fine, and is way faster than on Arduino UNO! 
 
-I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not examined actual pulsewidth on the oscope yet.
+I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not yet examined the actual pulsewidths using different methods, on my oscilloscope.
 
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
