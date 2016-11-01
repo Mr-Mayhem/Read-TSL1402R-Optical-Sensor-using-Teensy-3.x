@@ -42,7 +42,7 @@ We send each pixel value as a byte pair rather than character strings to shrink 
 Prior to sending the data over Serial, we shift the bits of each 2 byte word to the left 2 places (multiply by 4) to leave room for 255 as a unique prefix sync byte to sync the receiver to sender. Each pixel value is split into 2 bytes.
 This shift does not drop bits because the data ADC samples are only 12 bits wide. We have 4 "spare" bits in the 16 bit word. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte.
 
-On the Processing app, after parsing the data stream into frames using the sync byte as a delimiter, each pair of bytes is recombined into an unsigned integer. Next we shift the bits in each sensor data value to the right 2 places (divide by 4), to restore the original sensor values, prior to displaying them.
+On the Processing app, after parsing the data stream into frames using the sync byte as a delimiter, each pair of bytes is recombined into an unsigned integer identical to the original sensor pixel value, except still shifted. So we shift the bits to the right 2 places (divide by 4), to restore the original sensor values and finally display them.
 
 There is some subpixel resolution code as well from thingaverse filiment width sensor projects, but I commented it out because it was slowing the framerate. It works, but it has alot of jitter. I wonder if someone wants to suggest a better subpixel method
 with less jitter, for shadows mainly, but laser line gaussian subpixel code also would be interesting to see.
