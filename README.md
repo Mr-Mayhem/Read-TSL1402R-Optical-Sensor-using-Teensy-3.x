@@ -22,7 +22,7 @@ https://www.arrow.com/en/products/tsl1402r/ams-ag
 Processing home page (Processing is used to plot the sensor data):
 https://processing.org/
 
-This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, an Teensy Arduino example, and a Processing sketch to visualize the pixel data in near-realtime.
+This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, a Teensy 3.6 Arduino example sketch, and a Processing sketch to visualize the pixel data in near-realtime.
 
 Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
 in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding up the Processing sketch, with an eye towards using a C++ display solution in the future. The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
