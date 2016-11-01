@@ -35,9 +35,7 @@ Change each pin assignment in the code carefully to match your wiring and model 
 
 In Arduino IDE, clicking File/Preferences brings up a dialog showing settings and Arduino Sketchbook Location.
 
-Copy the library folder TSL1402R and its files directly into your 
-
-Arduino Sketchbook Location/libraries folder, and restart Arduino ide.
+Copy the library folder TSL1402R and its files directly into your Arduino Sketchbook Location/libraries folder, and restart Arduino ide.
 
 Then copy the Arduino and Processing sketches into the usual places, for example:
 
