@@ -50,7 +50,7 @@ see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
 
 I changed up the way the subpixel location is drawn as well. It highlights the 2 steepest sides of the shadow's notch, and the rough subpixel center location. Original samples must be spread out on the screen for the subpixel location to 
-reveal any additional accuracy. WIDTH_PER_PT sets the number of screen pixels dedicated on the screen for each data point.
+reveal any additional accuracy. WIDTH_PER_PT sets the number of screen pixels drawn on the screen for each data point, which determines the spacing between real data points.
 
 I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that the laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
