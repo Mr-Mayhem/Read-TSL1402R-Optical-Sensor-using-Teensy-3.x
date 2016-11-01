@@ -48,6 +48,6 @@ with less jitter, for shadows mainly, but laser line gaussian subpixel code also
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
-Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! 
+Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! I'd love to see articles or even just photos with a description. Contact me through github.
 
 
