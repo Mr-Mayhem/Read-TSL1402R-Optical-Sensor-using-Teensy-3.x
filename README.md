@@ -1,9 +1,9 @@
 # Teensy 3.x Read TSL1402R Optical Sensor
 Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel values in Processing
 
-This includes an Teensy-centric Arduino class library for reading the sensor.
+This includes a Teensy-centric Arduino class library for reading the sensor.
 
-Tested to work great on Teensy 3.6
+Tested on Teensy 3.6 OK and fast!
 
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" of the sensor datasheet example, and thus 2 pixels are presented to the ADC for reading at a time. 
 
