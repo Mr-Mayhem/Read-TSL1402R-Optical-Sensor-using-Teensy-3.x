@@ -30,7 +30,7 @@ Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, co
 ===============================================================================================================================
 Sensor Notes:
 ===============================================================================================================================
-This is a simple and fun sensor to play with. Shadows of a narrow wire show up as dips in the plot, and laser line as a spike. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display. It is used often as a filiment width sensor for 3d printers.
+This is a simple and fun sensor to play with. Shadows of a narrow wire show up as dips in the plot, and laser line as a spike. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display. It is used often as a filiment width sensor for 3d printers. I am trying to use it to measure small displacements. I could also envision  other applications, like an amateur seismometer, micrometer, wire thickness measurement, drill bit identifier, etc. 
 
 The pixel clock goes up to 5 mhz.
 Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cycles plus exposure delay to the math for closer estimate, which is slower. See the data sheet for the nitty gritty details on how to calculate framerate.
