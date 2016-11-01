@@ -29,7 +29,7 @@ bit pixel value words.
 The shift to the left 2 places (multiply by 4) prevents sending 255 in any byte, except on the sync byte.
 On the Processing app, we shift the bits back 2 places (divide by 4) to restore the original byte pair word values.
 
-The library will probably work on any Teensy 3.2 to 3.6 board, but you will probably need to change the pins used to connect to the sensor so it makes sense for your board.
+The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
 
 
