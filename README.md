@@ -41,6 +41,8 @@ Then copy the demo sketches into familiar places, and open the Arduino example s
 
 With the usb cable from the Teensy hooked up to your pc, Open the Processing sketch and run it. 
 
+If it raises an error on the serial, make sure the com port is set right. It may be off by 1 or something like that. It should match the com port set in Arduino IDE under Tools >> Port when your Teensy board is selcted under tools >> Board:.
+
 You should see the frames counting up and the number of bytes in the serial buffer changing, and a plot of white dots that respond to changing light on the sensor.
 
 ===============================================================================================================================
