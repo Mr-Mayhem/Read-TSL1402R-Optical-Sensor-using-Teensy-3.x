@@ -18,7 +18,7 @@ int _Apin2 = 39; // <-- Arduino pin connected to pin 8 (analog output 2) (parall
 
 uint16_t _sample1 = 0; // temporary place to hold A0 ADC value
 uint16_t _sample2 = 0; // temporary place to hold A1 ADC value
-
+uint16_t ExposureMicroseconds =500;
 extern ADC *adc;
 extern ADC::Sync_result ADCresult;
 
@@ -88,7 +88,7 @@ void TSL1402R::read(uint8_t * data, uint32_t len)
 
   // The integration time of the current program / measurement cycle is ~3ms (On Arduino 16 Mhz). 
   //If a larger timeb of integration is wanted, uncomment the next line:
-  delayMicroseconds(500); // <-- Add 500 microseconds integration time
+  delayMicroseconds(ExposureMicroseconds); // <-- Add 500 microseconds integration time
 
   // Stop the ongoing integration of light quanta from each photodiode by clocking in a new 
   //SI pulse into the sensors register:

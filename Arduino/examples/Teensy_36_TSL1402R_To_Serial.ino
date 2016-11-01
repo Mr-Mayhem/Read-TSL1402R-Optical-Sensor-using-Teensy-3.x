@@ -67,6 +67,7 @@ void setup()
   delay(5000);
   Serial.println("Begin Read");
   initADC();
+  Sensor.ExposureMicroseconds = 500;
 }
 
 void loop() {
