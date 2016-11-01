@@ -117,10 +117,10 @@ Processing Subpixel Resolution Notes:
 ===============================================================================================================================
 
 There is some Processing subpixel resolution code as well from thingiverse.com filament width sensor projects:
-see https://www.thingiverse.com/thing:454584 an original thingiverse project,
-and https://www.thingiverse.com/thing:704897 which is a remix of the original thingiverse project, from which I got the subpixel code for Processing.
+See https://www.thingiverse.com/thing:454584 an original thingiverse project,
+and https://www.thingiverse.com/thing:704897 which is a "remix" of the original thingiverse project, from which I got the subpixel code for Processing.
 
-I do not fully understand the formula used to calculate the center and what species of math it is, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses that forumla to estimate the center. The original estimated the width of the notch, not the center as my mods do. I want center because I am not concerned with width, but the position of the shadow relative to the pixels.
+I do not fully understand the formula used to subpixel estimation of filiment width and what species of math it is, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a forumla to estimate the center using some flavor of interpolation. The original referred to it as quadradic interpolation. The original code estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Is that right, or did I goof it up? I want center position, not width of the shadow. It seems to behave for the most part, but I see a cyclical error as I slowly move the shadow which does not always move in the same direction I am moving the shadow, so I suspect something's amiss.
 
 I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face. I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
 
