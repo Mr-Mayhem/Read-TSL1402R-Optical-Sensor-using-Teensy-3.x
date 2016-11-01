@@ -37,7 +37,7 @@ In Arduino IDE, clicking File/Preferences brings up a dialog showing settings an
 
 Copy the library folder TSL1402R and its files directly into your Arduino Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
 
-Then copy the demo sketches into familiar places, and open the Arduino example sketch and upload it to teensy 3.x 
+Then copy the Arduino and Processing sketches into familiar places, inside folders of the same name, and open the Arduino example sketch and upload it to teensy 3.x 
 
 With the usb cable from the Teensy hooked up to your pc, Open the Processing sketch and run it. 
 
