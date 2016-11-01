@@ -60,14 +60,17 @@ This is a simple and fun sensor to play with. Tested on Teensy 3.6, it works fin
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
 Processing XY Display of Data:
+
 Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and light from a laser line projector, like the kind used to project a laser line to align picture frames on a wall, shows up as an upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! 
 
 Some Applications:
+
 It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs. 
 
 One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. 
 
 Spectrometers:
+
 Spectrometers commonly employ this species of sensor or a linear CCD (a close cousin) to capture a light spectrum of an item by shining a diffraction grating "rainbow" over the sensor pixels, so red is at one end of the line of pixels and purple shines at the other. 
 
 I'd use a sensor with many more pixels for building a spectrometer, because the main point of a spectrometer is to resolve the different colors as finely as possible. AMS sells a range of these linear diode photo sensors, including sensors with much higher pixel counts, that are easy to use with small changes to this code. More professional instruments seem to prefer sensors like a Toshiba linear CCD sensor with over 3,000 pixels. Note that that device is significantly more challenging and complex to drive compared to the AMS sensors.
@@ -84,9 +87,11 @@ The fastest strategy would probably be 2 external ADCs, one per sensor analog ou
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 
 Bit-banging timing:
+
 I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not yet examined the actual pulsewidths using different methods, on my oscilloscope.
 
 Exposure time:
+
 You can set the exposure time by adjusting a delayMicroseconds() in the code.
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. 
 
@@ -142,6 +147,8 @@ There is some Processing subpixel resolution code as well from thingiverse.com f
 See https://www.thingiverse.com/thing:454584 an original thingiverse project,
 and https://www.thingiverse.com/thing:704897 which is a "remix" of the original thingiverse project, from which I got the subpixel code for Processing.
 
+Subpixel Formula?
+
 I do not fully understand the formula used to subpixel estimation of filiment width and what species of math it is, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a forumla to estimate the center using some flavor of interpolation. The original referred to it as quadradic interpolation. The original code estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Is that right, or did I goof it up? I want center position, not width of the shadow. It seems to behave for the most part, but I see a cyclical error as I slowly move the shadow which does not always move in the same direction I am moving the shadow, so I suspect something's amiss.
 
 I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face. I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
@@ -155,6 +162,7 @@ I commented the subpixel code out because it was slowing the framerate alot and 
 I wonder if someone knows of alternative subpixel resolution examples I could study, for finding the center of uniform shadows mainly, but laser line gaussian subpixel code from laser scanners would also be useful. I am thinking this species of code is most interesting and challenging to put into effect.
 
 Side Note on Laser Vs Shadow casting:
+
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
 ===============================================================================================================================
