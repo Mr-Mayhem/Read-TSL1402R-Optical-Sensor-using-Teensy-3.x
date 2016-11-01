@@ -38,7 +38,7 @@ Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cy
 I am somewhere around 300ish frames per sec, limited by the Processing sketch.
 There's always room for improvement. 
 
-Fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2 Mhz, see:
+The fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic like a cheap CLPD for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2 Mhz, see:
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 
 Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
@@ -46,7 +46,7 @@ http://playground.arduino.cc/Main/TSL1402R
 
 Exposure time:
 You can set the exposure time by adjusting a delayMicroseconds() in the code.
-Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should turn it down. I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further. See the datasheet for recommended upper and lower exposure limits.
+Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further. See the datasheet for recommended upper and lower exposure limits.
 
 ===============================================================================================================================
 General Notes:
