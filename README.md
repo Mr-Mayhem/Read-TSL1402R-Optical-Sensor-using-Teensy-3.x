@@ -30,7 +30,11 @@ Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, co
 ===============================================================================================================================
 Sensor Notes:
 ===============================================================================================================================
-This is a simple and fun sensor to play with. Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and light from a laser line projector, like the kind used to project a laser line to align picture frames on a wall, shows up as an upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs. One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. Spectrometers are common using this kind of part to capture the spectrum by shining the diffraction grating rainbow on it, but I'd use a sensor with more pixels, and alter the code to work with it. AMS sells a range these sensors in different pixel counts that work the same way, so you just modify this code to match the specifics.
+This is a simple and fun sensor to play with. Tested on Teensy 3.6, it works fine, and is way faster than on Arduino UNO! 
+
+The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
+
+Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and light from a laser line projector, like the kind used to project a laser line to align picture frames on a wall, shows up as an upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs. One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. Spectrometers are common using this kind of part to capture the spectrum by shining the diffraction grating rainbow on it, but I'd use a sensor with more pixels, and alter the code to work with it. AMS sells a range these sensors in different pixel counts that work the same way, so you just modify this code to match the specifics.
 
 The pixel clock goes up to 5 mhz.
 Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cycles plus exposure delay to the math for closer estimate, which is slower. See the data sheet for the nitty gritty details on how to calculate framerate.
@@ -44,6 +48,9 @@ http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
 http://playground.arduino.cc/Main/TSL1402R
 
+Bit-banging timing:
+I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not yet examined the actual pulsewidths using different methods, on my oscilloscope.
+
 Exposure time:
 You can set the exposure time by adjusting a delayMicroseconds() in the code.
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. 
@@ -51,16 +58,6 @@ Note that if you see the middle and far right sensor pixels lower than the rest,
 I witnessed this artifact in the original Arduino code cited above, and it may also be caused by the timing of the ADC read being sequential not simultaneous for the pixel pairs, or some other subtle timing issue. I also noted the original code from the Arduino example was not following the data sheet timing diagram in the sense that clock and SI pulse are staggered in a specific sequence. I altered the clock and SI timing phase relationship to strictly follow the datasheet, and in this final version for Teensy, this artifact has all but disappeared.
 
 I find 500 to 750 milliseconds ok for casual use under a magnifier clamping desk lamp which uses a big ring of white LEDs, a few feet over the sensor. If doing shadow casting from an led, you might turn it down even further because of the higher brightness involved. See the datasheet for recommended upper and lower exposure limits. The shorter the delay, the lower the readout for given brightness, and the faster the sensor framerate.
-
-===============================================================================================================================
-General Notes:
-===============================================================================================================================
-
-Tested on Teensy 3.6, it works fine, and is way faster than on Arduino UNO! 
-
-I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not yet examined the actual pulsewidths using different methods, on my oscilloscope.
-
-The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
 ===============================================================================================================================
 Teensy Notes:
