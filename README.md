@@ -24,6 +24,8 @@ https://processing.org/
 
 This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, a Teensy 3.6 Arduino example sketch, and a Processing sketch to visualize the pixel data in near-realtime.
 
+This is a simple and fun sensor to play with. Shadows of a narrow wire show up as dips in the plot, and laser line as a spike. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display. It is used often as a filiment width sensor for 3d printers.
+
 Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
 in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding up the Processing sketch, with an eye towards using a C++ display solution in the future. The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
 redrawing the screen from Serial event instead, last time I tried this approach it was much more sluggish, but I suspect my sync bit was being falsified by the data at the time.
@@ -41,9 +43,11 @@ This shift does not drop bits because the data ADC samples are only 12 bits wide
 
 On the Processing app, after parsing the data stream into frames using the sync byte as a delimiter, each pair of bytes is recombined into an unsigned integer. Next we shift the bits in each sensor data value to the right 2 places (divide by 4), to restore the original sensor values, prior to displaying them.
 
+There is some subpixel resolution code as well from thingaverse filiment width sensor projects, but I commented it out because it was slowing the framerate. It works, but it has alot of jitter. I wonder if someone wants to suggest a better subpixel method
+with less jitter, for shadows mainly, but laser line gaussian subpixel code also would be interesting to see.
+
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
-Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! This is a simple and fun sensor to play with. Shadows of a narrow wire show up as dips in the plot, and laser line as a spike. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display.
-
+Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! 
 
 
