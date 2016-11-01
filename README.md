@@ -36,6 +36,7 @@ The sensor consists of a linear array of 256 photodiodes. The sensor pixels are 
 We take advantage of the Teensy ADC library to read both pixel values simultaneously using two seperate Teensy hardware ADCs, rather than reading them at seperate times, one right after the other. In theory, this approach is almost twice as fast as other typical "Parallel" mode code examples found on the web for this sensor, and almost 4 times as fast compared with reading each pixel in turn, one at a time ("Serial" mode circuit in the sensor datasheet)
 
 What a perfect use of the "simultaneous read" feature of the Teensy ADC library! Score!
+
 Oh, but it gets better.
 We send each pixel value as a byte pair rather than character strings to shrink the bandwidth of the bitstream significantly.
 
@@ -44,12 +45,11 @@ This shift does not drop bits because the data ADC samples are only 12 bits wide
 
 On the Processing app, after parsing the data stream into frames using the sync byte as a delimiter, each pair of bytes is recombined into an unsigned integer identical to the original sensor pixel value, except still shifted. So we shift the bits to the right 2 places (divide by 4), to restore the original sensor values and finally display them.
 
-There is some subpixel resolution code as well from thingiverse.com filament width sensor projects,
-
+There is some subpixel resolution code as well from thingiverse.com filament width sensor projects:
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 remix I got code from mostly, see the processImage() function in Arduino sketch from that thingiverse project.
 
-but, I commented the subpixel out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that the laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
+I commented the subpixel out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that the laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
