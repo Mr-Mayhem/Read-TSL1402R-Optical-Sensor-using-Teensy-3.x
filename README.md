@@ -120,15 +120,15 @@ There is some Processing subpixel resolution code as well from thingiverse.com f
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
 
-I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. 
+I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. 
 
-The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big. 
+The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big so we are kinda limited to properly seeing the subpixel action without a zoom feature. 
 
 WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. With this higher than 2, we start to see the subpixel center location resolve better. A future version could narrow the displayed region of interest, so one can zoom in on the subpixels with more screen resolution without the entire Processing display window ending up being wider than the screen. 
 
-I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong, or need to add the zoom-in feature to give it more screen pixels to snap to in-between the original data points.
+I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong, or need to add the zoom-in feature to give it more screen pixels to snap to, in-between the original data points.
 
-I wonder if someone knows of a alternative subpixel resolution examples I could look at, for finding the center of uniform shadows mainly, but laser line gaussian subpixel code from laser scanners would also be interesting to play with. 
+I wonder if someone knows of a alternative subpixel resolution examples I could look at, for finding the center of uniform shadows mainly, but laser line gaussian subpixel code from laser scanners would also be interesting to play with. I am thinking this species of code is most interesting and challenging to put into effect.
 
 Side Note on Laser Vs Shadow casting:
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
