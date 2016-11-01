@@ -120,6 +120,8 @@ There is some Processing subpixel resolution code as well from thingiverse.com f
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
 
+I do not fully understand the formula used to calculate the center and what species of math it is, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses that forumla to estimate the center. The original estimated the width of the notch, not the center as my mods do. I want center because I am not concerned with width, but the position of the shadow relative to the pixels.
+
 I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face. I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
 
 The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big so we are kinda limited to properly seeing the subpixel action without a zoom feature. 
