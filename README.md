@@ -6,7 +6,7 @@ This includes a Teensy-centric Arduino class library for reading the sensor.
 Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
 in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding it up, with an eye towards using a C++ display solution in the future.
  
-The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" of the sensor datasheet example, and thus 2 pixels are presented to the ADC for reading at a time. 
+The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" of the sensor datasheet example, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
 We take advantage of the Teensy ADC library to read both pixel values simultaneously using two seperate hardware ADCs, rather than reading them at seperate times, one right after the other. In theory, this approach is almost twice as fast as normal "Parallel" mode, and almost 4 times as fast compared with reading each pixel in turn, one at a time ("Serial" mode in the sensor datasheet)
 
