@@ -30,7 +30,7 @@ Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, co
 ===============================================================================================================================
 Sensor Notes:
 ===============================================================================================================================
-This is a simple and fun sensor to play with. Tested on Teensy 3.6, it works fine, and is way faster than on Arduino UNO! 
+This is a simple and fun sensor to play with. Tested on Teensy 3.6, it works fine, and runs way, way faster than on 16 Mhz Arduino! I am seeing well over 240 frames per second (512 bytes each frame, with each frame being one complete sensor readout of all 256 pixels); I will measure more precisely after some more attempts to speed up the Processing data visualization sketch, with an eye towards using a C++ based display app in the future.
 
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
@@ -91,7 +91,7 @@ The processing app can't keep up without inserting a few milliseconds delay in t
 
 The serial connection seems blasing fast to me compared to Arduino, of course. The frame number is a blur.
 
-I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding up the Processing sketch, with an eye towards using a C++ display solution in the future. The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
+The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
 redrawing the screen from Serial event instead, last time I tried this approach it was much more sluggish, but I suspect my sync bit was being falsified by the data at the time.
 
 ===============================================================================================================================
