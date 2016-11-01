@@ -42,7 +42,10 @@ It is used often as a filament width sensor for 3d printers. I am trying to use 
 
 One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. 
 
-Spectrometers are common using this kind of part to capture a light spectrum of an item by shining a diffraction grating rainbow over the sensor pixels so red is at one end of the line of pixels and purple at the other. I'd use a sensor with many more pixels for Spectrometer use because the main point of a spectrometer is to resolve the different colors as finely as possible. AMS sells a range of these linear diode photo sensors, including sensors with much higher pixel counts, that would be easy to use with small changes to this code. More professional instruments seem to like a Toshiba sensor with over 3,000 pixels. Note that device is significantly more challenging and complex than the AMS parts.
+Spectrometers:
+Spectrometers commonly employ this species of sensor or a linear CCD (a close cousin) to capture a light spectrum of an item by shining a diffraction grating "rainbow" over the sensor pixels, so red is at one end of the line of pixels and purple shines at the other. 
+
+I'd use a sensor with many more pixels for building a spectrometer, because the main point of a spectrometer is to resolve the different colors as finely as possible. AMS sells a range of these linear diode photo sensors, including sensors with much higher pixel counts, that are easy to use with small changes to this code. More professional instruments seem to prefer sensors like a Toshiba linear CCD sensor with over 3,000 pixels. Note that that device is significantly more challenging and complex to drive compared to the AMS sensors.
 
 I used a low pixel count part because I seek fast-as-possible updates for my application, and the more pixels the slower the frame rate, and vice-versa.
 
