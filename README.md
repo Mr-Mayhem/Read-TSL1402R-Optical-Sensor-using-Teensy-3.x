@@ -1,5 +1,6 @@
-# Teensy 3.x Read TSL1402R Optical Sensor
-Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel values in Processing.
+# Read-TSL1402R-Optical-Sensor-using-Teensy-3.x
+
+Use a Teensy 3.x module to read the AMS TSL1402R optical sensor and plot pixel values in Processing.
 
 Inspired by:
 http://playground.arduino.cc/Main/TSL1402R
