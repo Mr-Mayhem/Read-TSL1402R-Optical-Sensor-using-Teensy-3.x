@@ -49,7 +49,7 @@ There is some subpixel resolution code as well from thingiverse.com filament wid
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 remix I got code from mostly, see the processImage() function in Arduino sketch from that thingiverse project.
 
-but, I commented the subpixel out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow is that the laser can amplify motion like a lever, to increase sensativity. It can be bounced a few times between mirrors to get a longer virtual baseline thus more amplification of motion.
+but, I commented the subpixel out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that the laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
