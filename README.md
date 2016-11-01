@@ -48,7 +48,7 @@ Exposure time:
 You can set the xxposure time by adjusting a delayMicroseconds() in the code.
 
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should turn it down. I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further. See the datasheet for recommended upper and lower exposure limits.
-
+===============================================================================================================================
 General Notes:
 ===============================================================================================================================
 Tested on Teensy 3.6, it works OK and is fast! 
@@ -88,7 +88,7 @@ The serial connection seems blasing fast to me compared to Arduino, of course. T
 
 I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding up the Processing sketch, with an eye towards using a C++ display solution in the future. The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
 redrawing the screen from Serial event instead, last time I tried this approach it was much more sluggish, but I suspect my sync bit was being falsified by the data at the time.
-
+===============================================================================================================================
 Processing Subpixel Resolution Notes:
 ===============================================================================================================================
 
@@ -103,7 +103,7 @@ The original samples must be spread out on the screen for the subpixel location 
 I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong. 
 
 I wonder if someone knows of a better subpixel resolution method with less jitter, for shadows mainly, but laser line gaussian subpixel code like used in laser scanners would also be interesting to try. The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
-===============================================================================================================================
+
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
