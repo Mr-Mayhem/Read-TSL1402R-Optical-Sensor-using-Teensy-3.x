@@ -1,14 +1,20 @@
 # Teensy 3.x Read TSL1402R Optical Sensor
-Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel values in Processing
+Use a Teensy 3.x board to read the AMS TSL1402R optical sensor and plot pixel values in Processing.
+
+The TSL1402R linear photodiode array optical sensor:
+http://ams.com/eng/Products/Light-Sensors/Linear-Array/TSL1402R
+
+Processing home page (Processing is used to plot the sensor data):
+https://processing.org/
 
 This includes a Teensy-centric Arduino class library for reading the sensor.
 
 Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
 in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding it up, with an eye towards using a C++ display solution in the future.
  
-The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" of the sensor datasheet example, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
+The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
-We take advantage of the Teensy ADC library to read both pixel values simultaneously using two seperate hardware ADCs, rather than reading them at seperate times, one right after the other. In theory, this approach is almost twice as fast as normal "Parallel" mode, and almost 4 times as fast compared with reading each pixel in turn, one at a time ("Serial" mode in the sensor datasheet)
+We take advantage of the Teensy ADC library to read both pixel values simultaneously using two seperate hardware ADCs, rather than reading them at seperate times, one right after the other. In theory, this approach is almost twice as fast as other typical "Parallel" mode code examples found on the web for this sensor, and almost 4 times as fast compared with reading each pixel in turn, one at a time ("Serial" mode circuit in the sensor datasheet)
 
 What a perfect use of the "simultaneous read" feature of the Teensy ADC library! Score!
 Oh, but it gets better.
