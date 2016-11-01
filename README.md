@@ -25,7 +25,8 @@ https://processing.org/
 This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, an Teensy Arduino example, and a Processing sketch to visualize the pixel data in near-realtime.
 
 Tested on Teensy 3.6 OK and fast! In fact, the processing app can't keep up without inserting a few milliseconds delay
-in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding it up, with an eye towards using a C++ display solution in the future.
+in the Teensy 3.6 loop. I am seeing well over 240 frames per second (512 bytes each frame); I will measure more precisely after some experiments in speeding up the Processing sketch, with an eye towards using a C++ display solution in the future. The Processing sketch is pretty stripped-for-speed as is, but polls serial in the loop for available bytes. I want to retry
+redrawing the screen from Serial event instead, last time I tried this approach it was much more sluggish, but I suspect my sync bit was being falsified by the data at the time.
  
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
