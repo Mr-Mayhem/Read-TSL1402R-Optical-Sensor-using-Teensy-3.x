@@ -128,7 +128,7 @@ WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. Wi
 
 I commented the subpixel code out because it was slowing the framerate alot and seems to have significant jitter. Maybe I am using it wrong, or need to add the zoom-in feature to give it more screen pixels to snap to, in-between the original data points.
 
-I wonder if someone knows of a alternative subpixel resolution examples I could look at, for finding the center of uniform shadows mainly, but laser line gaussian subpixel code from laser scanners would also be interesting to play with. I am thinking this species of code is most interesting and challenging to put into effect.
+I wonder if someone knows of alternative subpixel resolution examples I could study, for finding the center of uniform shadows mainly, but laser line gaussian subpixel code from laser scanners would also be useful. I am thinking this species of code is most interesting and challenging to put into effect.
 
 Side Note on Laser Vs Shadow casting:
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
