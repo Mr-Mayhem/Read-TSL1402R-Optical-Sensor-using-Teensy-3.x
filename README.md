@@ -37,7 +37,7 @@ Oh, but it gets better.
 We send each pixel value as a byte pair rather than character strings to shrink the bandwidth of the bitstream significantly.
 
 Prior to sending the data over Serial, we shift the bits of each 2 byte word to the left 2 places (multiply by 4) to leave room for 255 as a unique prefix sync byte to sync the receiver to sender. 
-This shift does not drop bits because the data ADC samples are only 12 bits wide, so we have 2 "spare" bits on each end of the 16 bit pixel value words. 
+This shift does not drop bits because the data ADC samples are only 12 bits wide. We have 4 "spare" bits in the 16 bit word. By shifting only 2 places, both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the sync byte.
 
 The shift to the left 2 places (multiply by 4) prevents sending 255 in any byte, except on the sync byte.
 On the Processing app, we shift the bits back 2 places (divide by 4) to restore the original byte pair word values prior to displaying them.
