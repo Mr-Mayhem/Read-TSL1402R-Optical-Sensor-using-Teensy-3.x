@@ -55,7 +55,7 @@ Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cy
 I am somewhere around 300ish frames per sec, limited by the Processing sketch.
 There's always room for improvement. 
 
-The fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic like a cheap CLPD for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2 Mhz, see:
+The fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic like a cheap CPLD for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses dedicated logic chips, but only up to 2 Mhz, see:
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 
 Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
