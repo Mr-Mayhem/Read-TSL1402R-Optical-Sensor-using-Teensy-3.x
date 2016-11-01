@@ -23,9 +23,25 @@ https://www.arrow.com/en/products/tsl1402r/ams-ag
 Processing home page (Processing is used to plot the sensor data):
 https://processing.org/
 
-This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, a Teensy 3.6 Arduino example sketch, and a Processing sketch to visualize the pixel data in near-realtime.
+This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, a Teensy 3.6 Arduino example sketch, and a Processing sketch to visualize the pixel data in near-realtime. 
 
 Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, combined with ESP8266 Wifi to send the sensor data over WiFi to a Processing sketch.
+
+===============================================================================================================================
+Installation:
+===============================================================================================================================
+Wire the sensor to a Teensy on a breadboard, according to http://playground.arduino.cc/Main/TSL1402R
+Change each pin carefully to make sense. Teensy 3.6 is what I set the pins to and needs no changes.
+
+In Arduino IDE, clicking File/Preferences brings up a dialog showing settings and Arduino Sketchbook Location.
+
+Copy the library folder TSL1402R and its files directly into your Arduino Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
+
+Then copy the demo sketches into familiar places, and open the Arduino example sketch and upload it to teensy 3.x 
+
+With the usb cable from the Teensy hooked up to your pc, Open the Processing sketch and run it. 
+
+You should see the frames counting up and the number of bytes in the serial buffer changing, and a plot of white dots that respond to changing light on the sensor.
 
 ===============================================================================================================================
 Sensor Notes:
@@ -57,9 +73,6 @@ There's always room for improvement.
 
 The fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic like a cheap CPLD for driving the sensor chip at a steady 5 Mhz pixel clock. AMS, who makes the sensor, sells a demo board that uses dedicated logic chips, but only up to 2 Mhz, see:
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
-
-Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
-http://playground.arduino.cc/Main/TSL1402R
 
 Bit-banging timing:
 I unwrapped the Arduino sensor pin bit banging code to make it faster, but using DigitalWriteFast() is too fast, apparently, because it stops working. Maybe one could use some tiny no-op type of delays with DigitalWriteFast() or use multiple calls to DigitalWriteFast(), for determining the narrowest possible driving pulse widths before it quits. The minimum pulse width is specified in the data sheet, but I have not yet examined the actual pulsewidths using different methods, on my oscilloscope.
