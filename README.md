@@ -35,7 +35,11 @@ Change each pin assignment in the code carefully to match your wiring and model 
 
 In Arduino IDE, clicking File/Preferences brings up a dialog showing settings and Arduino Sketchbook Location.
 
-Copy the library folder TSL1402R and its files directly into your Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
+Copy the library folder TSL1402R and its files directly into your 
+--------------------------------------------------------------------------------------------------
+Arduino Sketchbook Location/libraries
+--------------------------------------------------------------------------------------------------
+folder, and restart Arduino ide. 
 
 Then copy the Arduino and Processing sketches into the usual places, for example:
 
@@ -48,7 +52,7 @@ Open the Arduino example sketch and upload it to teensy 3.x
 
 With the usb cable from the Teensy hooked up to your pc, Open the Processing sketch and run it. 
 
-If it raises an error on the serial, make sure the com port is set right. It may be off by 1 or something like that. It should match the com port set in Arduino IDE under Tools >> Port when your Teensy board is selcted under tools >> Board:.
+If it raises an error on the serial, make sure the com port is set right. It may be off by 1 or something like that. It should match the com port set in Arduino IDE under Tools >> Port when your Teensy board is selcted under Tools >> Board:.
 
 You should see the frames counting up and the number of bytes in the serial buffer changing, and a plot of white dots that respond to changing light on the sensor.
 
