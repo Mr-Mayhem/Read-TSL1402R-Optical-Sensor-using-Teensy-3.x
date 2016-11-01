@@ -48,7 +48,7 @@ Exposure time:
 You can set the exposure time by adjusting a delayMicroseconds() in the code.
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. 
 
-I witnessed this artifact in the original Arduino code cited above, and it may also be caused by the sequential not simultaneous reading of the pixel pairs, as the read crosses the center pixel, or some other subtle timing issue. I also noted the original code was not following the data sheet timing diagram in the sense that clock and SI pulse are staggered in a specific sequence, as shown in this code but not in the original Adruino example. This artifact disappeared on my Teensy. 
+I witnessed this artifact in the original Arduino code cited above, and it may also be caused by the timing of the ADC read being sequential not simultaneous for the pixel pairs, or some other subtle timing issue. I also noted the original code from the Arduino example was not following the data sheet timing diagram in the sense that clock and SI pulse are staggered in a specific sequence. I altered the clock and SI timing phase relationship to strictly follow the datasheet, and in this final version for Teensy, this artifact has all but disappeared.
 
 I find 500 to 750 milliseconds ok for casual use under a magnifier clamping desk lamp which uses a big ring of white LEDs, a few feet over the sensor. If doing shadow casting from an led, you might turn it down even further because of the higher brightness involved. See the datasheet for recommended upper and lower exposure limits. The shorter the delay, the lower the readout for given brightness, and the faster the sensor framerate.
 
