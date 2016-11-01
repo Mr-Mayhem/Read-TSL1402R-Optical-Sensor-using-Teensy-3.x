@@ -120,7 +120,7 @@ There is some Processing subpixel resolution code as well from thingiverse.com f
 see https://www.thingiverse.com/thing:454584 original work
 and https://www.thingiverse.com/thing:704897 the remix I got Processing subpixel code from mostly.
 
-I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical object do not display unless a significant and clean, narrow shadow is present on light field hitting the sensor. I use an insulated jumper wire or rod for casual testing, but be careful not to short out your circuit with bare metal objects.
+I draw the subpixel related graphics in my own way. It highlights the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face. I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
 
 The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big so we are kinda limited to properly seeing the subpixel action without a zoom feature. 
 
