@@ -35,9 +35,13 @@ Change each pin assignment in the code carefully to match your wiring and model 
 
 In Arduino IDE, clicking File/Preferences brings up a dialog showing settings and Arduino Sketchbook Location.
 
-Copy the library folder TSL1402R and its files directly into your Arduino Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
+Copy the library folder TSL1402R and its files directly into your Arduino Sketchbook Location/libraries folder, and restart Arduino ide. 
 
-Then copy the Arduino and Processing sketches into familiar places, inside folders of the same name, and open the Arduino example sketch and upload it to teensy 3.x 
+Then copy the Arduino and Processing sketches into the usual places, for example
+Your Arduino Sketchbook Location/Teensy_36_TSL1402R_To_Serial/Teensy_36_TSL1402R_To_Serial.ino 
+Your Processing Sketchbook Location/Teensy_36_TSL1402R_To_Serial/Teensy_36_TSL1402R_To_Serial.pde
+
+Open the Arduino example sketch and upload it to teensy 3.x 
 
 With the usb cable from the Teensy hooked up to your pc, Open the Processing sketch and run it. 
 
