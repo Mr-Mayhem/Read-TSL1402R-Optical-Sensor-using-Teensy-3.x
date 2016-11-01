@@ -30,7 +30,7 @@ Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, co
 ===============================================================================================================================
 Sensor Notes:
 ===============================================================================================================================
-This is a simple and fun sensor to play with. Shadows of a narrow wire show up as dips in the plot, and laser line as a spike. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display. It is used often as a filiment width sensor for 3d printers. I am trying to use it to measure small displacements. I could also envision  other applications, like an amateur seismometer, micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, liquid flow detector etc. 
+This is a simple and fun sensor to play with. Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and laser line show up as a upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs. One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. 
 
 The pixel clock goes up to 5 mhz.
 Divide that by 256 pixels = 19,531.25 frames per second max, but add 18 clock cycles plus exposure delay to the math for closer estimate, which is slower. See the data sheet for the nitty gritty details on how to calculate framerate.
@@ -41,11 +41,11 @@ There's always room for improvement.
 Fastest strategy would probably be 2 external ADCs, one per sensor analog out, with dedicated logic for driving the sensor chip at a steady 5 mhz. AMS, who makes the sensor, sells a demo board that uses this approach but only up to 2mhz, see:
 http://ams.com/eng/Support/Demoboards/Light-Sensors/Linear-Array/PC404A-Eval-Kit
 
-Hook it up like the Adruino example:
+Wire it up on a breadboard like the Adruino example, but use the pins I used on the Teensy 3.6 or alter the pins as needed:
 http://playground.arduino.cc/Main/TSL1402R
 
 Exposure time:
-You can set the xxposure time by adjusting a delayMicroseconds() in the code.
+You can set the exposure time by adjusting a delayMicroseconds() in the code.
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should turn it down. I find 500 to 750 milliseconds ok on the Teensy 3.6. If doing shadow casting from an led, you might turn it down even further. See the datasheet for recommended upper and lower exposure limits.
 
 ===============================================================================================================================
