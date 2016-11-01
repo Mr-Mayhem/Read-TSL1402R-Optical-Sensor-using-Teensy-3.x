@@ -64,8 +64,6 @@ TSL1402R Sensor(CLKpin, SIpin, Apin1, Apin2);  //sensor object
 void setup() 
 {
   Serial.begin(115200);
-  delay(5000);
-  Serial.println("Begin Read");
   initADC();
   Sensor.ExposureMicroseconds = 500;
 }
