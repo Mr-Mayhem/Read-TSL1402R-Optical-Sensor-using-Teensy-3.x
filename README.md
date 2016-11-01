@@ -7,6 +7,15 @@ http://ams.com/eng/Products/Light-Sensors/Linear-Array/TSL1402R
 TSL1402R PDF Datasheet:
 http://ams.com/chi/content/download/250165/975693/file/TSL1402R_DS000147_2-00.pdf
 
+Mouser Electronics Link:
+http://www.mouser.com/ProductDetail/ams/TSL1402R/?qs=sKasJQfA%252bi5t6%2F%2FqMqmpuA%3D%3D
+
+Digikey Link:
+https://www.digikey.com/product-detail/en/ams-taos-usa-inc/TSL1402R/TSL1402-R-ND/3095085
+
+Arrow Electronics Link:
+https://www.arrow.com/en/products/tsl1402r/ams-ag
+
 Processing home page (Processing is used to plot the sensor data):
 https://processing.org/
 
