@@ -43,7 +43,7 @@ On the Processing app, after parsing the data stream into frames using the sync 
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
-
+Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! This is a fun sensor to mess with. I am using it to develop a displacement sensor for a cnc machine.
 
 
 
