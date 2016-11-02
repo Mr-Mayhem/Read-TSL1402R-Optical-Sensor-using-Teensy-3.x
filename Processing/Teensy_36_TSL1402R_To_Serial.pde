@@ -1,10 +1,10 @@
 import processing.serial.*;
 
-// This sketch receives and displays a point plot of sensor data from an Arduino
-// Uno board.
+// This sketch receives and displays a point plot of sensor data from incoming serial
+// binary stream from a corresponding Arduino or Teensy TSL1402R sensor reader sketch.
 
-// An Arduino is wired to TSL1402R linear photodiode array chip, using the 
-//sensor chip's parallel mode circuit suggestion, which reads two analog values 
+// An Arduino or Teensy is wired to TSL1402R linear photodiode array chip, using the 
+// sensor chip's parallel mode circuit suggestion, which reads two analog values 
 // on each clock cycle applied to the sensor chip, (we don't use the sensor chip
 // 'serial' mode which reads only one value per applied clock). 
 // In the Teensy 3.x version of the Arduino sketch, we go one step further,
