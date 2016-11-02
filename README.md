@@ -69,6 +69,9 @@ This is a simple and fun sensor to play with. Tested on Teensy 3.6, it works fin
 
 The sensor consists of a linear array of 256 photodiodes. The sensor pixels are clocked out using "parallel mode" circuit of the sensor datasheet, and thus 2 pixels are presented for reading at a time. (After looping 128 times, we are done reading all the pixels.)
 
+You may notice 60 or 120 hertz flicker from certain light sources. 
+The AMS website page for the part has a white paper that shows some ways to filter such noise, but often you can use a steady light source to eliminate the problem.
+
 Processing XY Display of Data:
 
 Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and light from a laser line projector, like the kind used to project a laser line to align picture frames on a wall, shows up as an upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! 
