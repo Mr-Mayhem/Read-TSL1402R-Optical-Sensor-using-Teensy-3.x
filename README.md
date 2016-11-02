@@ -78,9 +78,9 @@ Shadows cast upon the sensor window by a narrow wire show up as dips in the plot
 
 Some Applications:
 
-It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs. 
+It is used often as a filament width sensor for 3d printers. I am trying to use it to measure small displacements on a probe tip for cnc blank workpiece height correction, like for milling PCBs.
 
-One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor etc. 
+One can envision many other useful applications, like an amateur seismometer, a micrometer, a wire thickness measurement gadget, a quick drill bit size identifier, scanning line camera sensor, sensitive micro weighing or torsion balance scale sensor, robot line follower, software adjustable (instead of mechanical) cnc axis homing sensor, 3d printer bed leveling sensor etc. 
 
 Spectrometers:
 
