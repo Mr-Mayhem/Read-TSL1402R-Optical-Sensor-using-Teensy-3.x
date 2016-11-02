@@ -6,60 +6,17 @@ import processing.serial.*;
 // An Arduino is wired to TSL1402R linear photodiode array chip, using the 
 //sensor chip's parallel mode circuit suggestion, which reads two analog values 
 // on each clock cycle applied to the sensor chip, (we don't use the sensor chip
-// 'serial' mode which reads only one value per applied clock).
+// 'serial' mode which reads only one value per applied clock). 
+// In the Teensy 3.x version of the Arduino sketch, we go one step further,
+// and read both analog pixel values at the same instant, rather than sequentially.
 
 // An Arduino sketch is programmed to send the sensor values over the usb serial 
 // connection to a PC running Processing.
 
-// Each 0 to 1023 integer sensor value is sent as two bytes over the serial 
+// Each integer sensor value is sent as two bytes over the serial 
 // connection. The Arduino program sends one PREFIX byte of value 255 followed 
 // by 512 data bytes, two data bytes per sensor value. 
 // (256 sensor pixels X 2 = 512)
-
-// The maximum numerical value of each sample is 1023, 10 bits.  Two bytes is, 
-// of course, 16 bits, so if we multiply the bytes up in place value, we get some 
-// unused byte values to use for the PREFIX and other flags, which allows us to 
-// get away with using only one unique PREFIX byte for syncing the reciever loop to
-// the serial bytestream.
-
-// We use a byte shifting strategy to prevent any bytes other than the PREFIX
-// byte from having the interesting value, 255, as the PREFIX byte. This 
-// prevents false positives during the sync routine (which looks for the PREFIX 
-// value 255 in the byte stream to trigger a read of the 512 bytes immediately 
-// thereafter which comprises the sample data. Each of the 256 integer sensor 
-// values are shifted 2 places to the left multipled by 4) to prevent byte value 
-// 255 from being ever being sent as data. Then, each of the 256 integer sensor 
-// values are split into 2 seperate bytes in the Arduino sketch.
-
-// On receive in this sketch, this two step process is reversed to reproduce
-// the original integer value for each sensor pixel reading of 0 to 1023.
-
-// We convert each pair of bytes back into an integer, and then divide
-// by 4 by shifting the integer value 2 places to the right.
-
-// This binary method we use to send the data uses 2 less bytes for each value 
-// than the common method of sending string characters, which, assuming 4 place 
-// values, would utilize four bytes rather than two per sensor pixel value. 
-
-// Speaking of strings, the Comma Delimited split string method would add an 
-// additional byte as well, the comma, for each sensor pixel value.
-
-// Why bother with these binary manupulation stunts, why not just use strings 
-// and parse them? Because string methods consume at least twice the bandwidth 
-// and are generally slower to compute. We want to send the data as quickly as 
-// possible to maximize the framerate and to make the presented information as 
-// timely as possible. 
-
-// Why do we want fast? PID control loops fed from this sensor require low  
-// latency for crisp response and overall performance. Also it's a personal
-// learning exercise, to see how fast we can push the Arduino and Processing, 
-// and to become more familiar with what useful ingredients go into such a 
-// recipe.
-
-// My experience attempting to use "SerialEvent()" to trigger redraw()
-// seemed significantly slower and more jerkey, than simply
-// polling once per frame for 512+1 serial bytesAvailable() in the draw loop,
-// as done below.
 
 // Constants:
 
