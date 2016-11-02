@@ -136,10 +136,10 @@ void draw() {
        availableBytesDraw = availableBytes;
       }
       background(0); // clear the canvas
-      //fill(255);
-      text(chartRedraws, 30, 22);
+      fill(255);
+      text(chartRedraws, 10, 30);
       // show amount of bytes waiting in the serial buffer
-      text(availableBytesDraw, 115, 22);
+      text(availableBytesDraw, 50, 30);
       
       //text(frameRate, 200, 22);
 
@@ -168,11 +168,21 @@ void draw() {
         //}
         
         // Plot a point on the canvas for this pixel
-        //stroke(255);
+        stroke(255);
         //fill(255);
         point(i*WIDTH_PER_PT, height - pixArray[i]/windowScaleDiv);
+        
+        // prepare color to correspond to sensor pixel reading
+        int pixelColor = pixArray[i] /16;
+        // Plot a row of pixels near the top of the screen ,
+        // and color them with the 0 to 255 greyscale sensor value
+        noStroke();
+        fill(pixelColor, pixelColor, pixelColor);
+        rect(i*WIDTH_PER_PT, 0, 4, 10);
       }
         //sensorAverageValue = pixArraySum / NPIXELS;
+        
+ 
        // calculate and display shadow location with subpixel accuracy
        // calcAndDisplaySensorShadowPos();
     } else {
