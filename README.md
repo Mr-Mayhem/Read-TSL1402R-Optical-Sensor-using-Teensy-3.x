@@ -166,6 +166,7 @@ I wonder if someone knows of alternative subpixel resolution examples I could st
 Side Note on Laser Vs Shadow casting:
 
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
+
 ===============================================================================================================================
 Future improvements:
 ===============================================================================================================================
