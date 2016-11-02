@@ -156,8 +156,9 @@ void draw() {
       //prevSensorValue = pixArray[0];
       // Store and Display pixel values
       for(int i=0; i < NPIXELS; i++) {
-        // Read a pair of bytes from the byte array, convert them into an integer, and 
-        // copy this integer into pixArray[]
+        // Read a pair of bytes from the byte array, convert them into an integer, 
+        // shift right 2 places, and 
+        // copy result into pixArray[]
         pixArray[i] = (byteArray[i<<1]<< 8 | (byteArray[(i<<1) + 1] & 0xFF))>>2;
         //pixArraySum =+ pixArray[i];
         
