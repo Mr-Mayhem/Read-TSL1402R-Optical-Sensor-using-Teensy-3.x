@@ -25,6 +25,15 @@ https://processing.org/
 
 This includes a Teensy-centric Arduino class library for reading the TSL1402R sensor, a Teensy 3.6 Arduino example sketch, and a Processing sketch to visualize the pixel data in near-realtime. 
 
+===============================================================================================================================
+Future improvements:
+===============================================================================================================================
+
+A lot of the code for extra features on the Processing sketch is commented out, to make it run faster. 
+I will add a more full featured Processing sketch shortly, with all the bells and whistles turned on.
+
+I will attempt writing a C++ visualizer at some point, so it can keep up with the data stream at higher speeds.
+
 Also in the works is a Teensy 3.x SPI Master to ESP8266 SPI Slave connection, combined with ESP8266 Wifi to send the sensor data over WiFi to a Processing sketch.
 
 ===============================================================================================================================
@@ -166,15 +175,6 @@ I wonder if someone knows of alternative subpixel resolution examples I could st
 Side Note on Laser Vs Shadow casting:
 
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
-
-===============================================================================================================================
-Future improvements:
-===============================================================================================================================
-
-A lot of the code for extra features on the Processing sketch is commented out, to make it run faster. 
-I will add a more full featured Processing sketch shortly, with all the bells and whistles turned on.
-
-I will attempt writing a C++ visualizer at some point, so it can keep up with the data stream at higher speeds.
 
 ===============================================================================================================================
 Final thoughts:
