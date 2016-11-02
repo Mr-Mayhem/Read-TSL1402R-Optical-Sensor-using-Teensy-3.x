@@ -128,7 +128,7 @@ We send each pixel value as a byte pair rather than character strings to shrink 
 
 Prior to sending the data over Serial, we shift the bits of each 12 bit pixel value to the left 2 places (multiply by 4) to avoid value 255 in either the upper or lower byte of the sensor value- this value is reserved as the unique prefix & sync byte. 
 
-This shifting does not drop bits because the data ADC samples are only 12 bits wide, so we have 4 "spare" bits. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte. Each shifted pixel value is then split into 2 bytes and sent over serial in 512 byte chunks.
+This shifting does not drop bits because the data ADC samples are only 12 bits wide, so we have 4 "spare" bits. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte. Yet, the final result still is 12 bits of information. Each shifted pixel value is then split into 2 bytes and sent over serial in 512 byte chunks.
 
 ===============================================================================================================================
 Processing Notes:
