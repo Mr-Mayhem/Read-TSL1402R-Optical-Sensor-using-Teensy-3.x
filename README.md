@@ -173,6 +173,7 @@ Final thoughts:
 
 The library will probably work on any Teensy 3.x board, but you may need to change the pins used to connect to the sensor.
 
-Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! I'd love to see articles or even just photos with a description. Contact me through github.
+Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! I'd love to see articles or even just photos with a description. Contact me through github or the Teensy forum thread on this:
+https://forum.pjrc.com/threads/39058-New-library-and-example-Read-TSL1402R-Optical-Sensor-using-Teensy-3-x?p=121782#post121782
 
 
