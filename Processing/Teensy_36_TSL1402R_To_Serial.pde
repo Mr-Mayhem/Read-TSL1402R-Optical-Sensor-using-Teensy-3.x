@@ -10,8 +10,8 @@ import processing.serial.*;
 // In the Teensy 3.x version of the Arduino sketch, we go one step further,
 // and read both analog pixel values at the same instant, rather than sequentially.
 
-// An Arduino sketch is programmed to send the sensor values over the usb serial 
-// connection to a PC running Processing.
+// The Arduino sketch is programmed to send the sensor values over the usb serial 
+// connection to a PC running this Processing sketch.
 
 // Each integer sensor value is sent as two bytes over the serial 
 // connection. The Arduino program sends one PREFIX byte of value 255 followed 
