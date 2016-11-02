@@ -93,7 +93,8 @@ I unwrapped the Arduino sensor pin bit banging code to make it faster, but using
 
 Exposure time:
 
-You can set the exposure time by adjusting a delayMicroseconds() in the code.
+You can set the exposure time by adjusting Sensor.ExposureMicroseconds() in the setup() of the Arduino example. 
+
 Note that if you see the middle and far right sensor pixels lower than the rest, you may be saturating the sensor with too much exposure time, and should try turning it down. 
 
 I witnessed this artifact in the original Arduino code cited above, and it may also be caused by the timing of the ADC read being sequential not simultaneous for the pixel pairs, or some other subtle timing issue. I also noted the original code from the Arduino example was not following the data sheet timing diagram in the sense that clock and SI pulse must be staggered in a specific sequence. The timing in the original Arduino code example worked, but the timing phase relationship between clock and SI was out of spec. I altered the clock and SI timing phase relationship to strictly follow the datasheet, and in this final version for Teensy, this artifact has all but disappeared.
