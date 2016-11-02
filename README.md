@@ -5,7 +5,7 @@ Use a Teensy 3.x module to read the AMS TSL1402R optical sensor and plot pixel v
 Inspired by:
 http://playground.arduino.cc/Main/TSL1402R
 
-The TSL1402R linear photodiode array optical sensor:
+The TSL1402R linear photodiode array optical sensor, also note the significant Techical Docs section:
 http://ams.com/eng/Products/Light-Sensors/Linear-Array/TSL1402R
 
 TSL1402R PDF Datasheet:
