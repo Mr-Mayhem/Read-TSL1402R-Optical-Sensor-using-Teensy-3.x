@@ -173,7 +173,7 @@ void draw() {
         point(i*WIDTH_PER_PT, height - pixArray[i]/windowScaleDiv);
         
         // prepare color to correspond to sensor pixel reading
-        int pixelColor = pixArray[i] /16;
+        pixelColor = pixArray[i] /16;
         // Plot a row of pixels near the top of the screen ,
         // and color them with the 0 to 255 greyscale sensor value
         noStroke();
