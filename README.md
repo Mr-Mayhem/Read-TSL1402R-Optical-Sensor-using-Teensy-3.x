@@ -126,8 +126,9 @@ What a perfect use of the "simultaneous read" feature of the Teensy ADC library!
 Oh, but it gets better.
 We send each pixel value as a byte pair rather than character strings to shrink the bandwidth of the bitstream significantly. This has the side benefit of faster frame rate and lower latency.
 
-Prior to sending the data over Serial, we shift the bits of each 16 bit pixel value to the left 2 places (multiply by 4) to avoid value 255, which is reserved as the unique prefix/sync byte, and used to sync the receiver to sender. 
-This shift does not drop bits because the data ADC samples are only 12 bits wide. We have 4 "spare" bits in the 16 bit word. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte. Each shifted pixel value is then split into 2 bytes and sent over serial in 512 byte chunks.
+Prior to sending the data over Serial, we shift the bits of each 12 bit pixel value to the left 2 places (multiply by 4) to avoid value 255 in either the upper or lower byte of the sensor value- this value is reserved as the unique prefix & sync byte. 
+
+This shifting does not drop bits because the data ADC samples are only 12 bits wide, so we have 4 "spare" bits. By shifting only 2 places to the left (multiply by 4), both the upper byte and lower byte of each word are prevented from ever equaling 255, so as to not interfere with the 255 sync byte. Each shifted pixel value is then split into 2 bytes and sent over serial in 512 byte chunks.
 
 ===============================================================================================================================
 Processing Notes:
