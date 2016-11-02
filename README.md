@@ -166,6 +166,14 @@ I wonder if someone knows of alternative subpixel resolution examples I could st
 Side Note on Laser Vs Shadow casting:
 
 The advantage of laser over shadow when used for a measuring device, is that a laser can amplify motion like a lever, to increase sensitivity to motion. It can be bounced a few times between mirrors prior to striking the sensor to get a longer virtual baseline thus more amplification of motion, yet still be contained in a relatively small case.
+===============================================================================================================================
+Future improvements:
+===============================================================================================================================
+
+A lot of the code for extra features on the Processing sketch is commented out, to make it run faster. 
+I will add a more full featured Processing sketch shortly, with all the bells and whistles turned on.
+
+I will attempt writing a C++ visualizer at some point, so it can keep up with the data stream at higher speeds.
 
 ===============================================================================================================================
 Final thoughts:
@@ -175,5 +183,7 @@ The library will probably work on any Teensy 3.x board, but you may need to chan
 
 Since this is my first github posting, any feedback is welcomed, and tell me about your experiments! I'd love to see articles or even just photos with a description. Contact me through github or the Teensy forum thread on this:
 https://forum.pjrc.com/threads/39058-New-library-and-example-Read-TSL1402R-Optical-Sensor-using-Teensy-3-x?p=121782#post121782
+
+ 
 
 
