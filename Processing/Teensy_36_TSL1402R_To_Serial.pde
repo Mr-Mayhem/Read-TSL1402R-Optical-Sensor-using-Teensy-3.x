@@ -1,6 +1,6 @@
 import processing.serial.*;
 
-// This sketch receives and displays a bar chart of sensor data from an Arduino
+// This sketch receives and displays a point plot of sensor data from an Arduino
 // Uno board.
 
 // An Arduino is wired to TSL1402R linear photodiode array chip, using the 
