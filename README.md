@@ -172,17 +172,19 @@ and https://www.thingiverse.com/thing:704897 which is a "remix" of the original 
 
 Subpixel Formula?
 
-I do not fully understand the filiment width subpixel code, but I do understand it finds the steepest slope on the left and right of the "notch" visible in the data plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. In response to small movements of the shadow, it moves between the original data points smoothly for a bit, then it jerks as the peak finder selects new points to anchor to, so I don't think it's working all that great, but maybe I goofed it up. 
+I do not fully understand the filament width subpixel code, but I do understand it finds the steepest slope on the left and right of the "notch" visible in the data plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. In response to small movements of the shadow, it moves between the original data points smoothly for a bit, then it jerks as the peak finder selects new points to anchor to, so I don't think it's working all that great, but maybe I goofed it up. 
 
 Update: With a litle more knowlege under my belt, I am thinking that interpolation should be done first (adding well-estimated points between the original points), then look for the steepest slopes. Then the jerkeyness would be less because the steepest slope finder would be snapping between the new, more closely spaced points. 
 
-See a brief page containing interpolation code examples here: http://paulbourke.net/miscellaneous/interpolation/
-If you click his name, there are some funny jokes on his miscellaneous page. One example:
+See a brief page containing interpolation code examples here: 
+http://paulbourke.net/miscellaneous/interpolation/
+If you click his name at the top, it goes to his miscellaneous page, containing funny jokes scattered alongside a career's worth of interesting graphics programming tidbits. One example:
 
 Question. Why did the computer programmer die in the shower?
-Answer. The instructions on the shampoo bottle read: "Lather, Rinse, Repeat" lol.
+Answer. The instructions on the shampoo bottle read: "Lather, Rinse, Repeat" 
+lol.
 
-The original code estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Kind of a guess on my part there.
+The original subpixel code, from the filament width sensor projects, estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Kind of a guess on my part there.
 
 I draw the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face, AND the related code is uncommented so it runs. 
 
