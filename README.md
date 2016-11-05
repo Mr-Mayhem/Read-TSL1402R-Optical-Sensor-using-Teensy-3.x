@@ -164,13 +164,13 @@ Note: The subpixel code is experimental and temperamental. I am exploring ways t
 I will announce here when I have better sub-pixel code working. It may be awhile, but this remains my focus 
 so I can learn me some DSP.
 
-There is some Processing subpixel resolution code as well from thingiverse.com filament width sensor projects:
+The Processing sketch contains code to obtain subpixel resolution, borrowed from thingiverse.com filament width sensor projects:
 See https://www.thingiverse.com/thing:454584 an original thingiverse project,
 and https://www.thingiverse.com/thing:704897 which is a "remix" of the original thingiverse project, from which I got the subpixel code for Processing.
 
 Subpixel Formula?
 
-I do not fully understand the formula used to subpixel estimation of filiment width, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. 
+I do not fully understand the formula used to subpixel estimation of filiment width, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. It seems a bit jerkey in responce to small movements of the shadow, so I don't think it's all that, or maybe I goofed it up.
 
 My "center of shadow" instead of "width of shadow" mod:
 
