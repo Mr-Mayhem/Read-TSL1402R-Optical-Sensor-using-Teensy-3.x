@@ -178,7 +178,7 @@ Update: With a litle more knowlege under my belt, I am thinking that interpolati
 
 See a brief page containing interpolation code examples here: 
 http://paulbourke.net/miscellaneous/interpolation/
-If you click his name at the top, it goes to his miscellaneous page, containing funny jokes scattered alongside a career's worth of interesting graphics programming tidbits. One example:
+If you click his name at the top, it goes to his miscellaneous page, containing some funny jokes and wise insights scattered throughout a career pile of graphics programming how-tos. One example:
 
 Question. Why did the computer programmer die in the shower?
 Answer. The instructions on the shampoo bottle read: "Lather, Rinse, Repeat" 
