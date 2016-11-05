@@ -182,7 +182,6 @@ If you click his name at the top, it goes to his miscellaneous page, containing 
 
 Question. Why did the computer programmer die in the shower?
 Answer. The instructions on the shampoo bottle read: "Lather, Rinse, Repeat" 
-lol.
 
 The original subpixel code, from the filament width sensor projects, estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Kind of a guess on my part there.
 
