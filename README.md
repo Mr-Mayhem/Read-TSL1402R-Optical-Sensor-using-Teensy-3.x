@@ -172,7 +172,9 @@ and https://www.thingiverse.com/thing:704897 which is a "remix" of the original 
 
 Subpixel Formula?
 
-I do not fully understand the filiment width subpixel code, but I do understand it finds the steepest slope on the left and right of the "notch" visible in the data plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. In response to small movements of the shadow, it moves between the original data points smoothly for a bit, then it jerks as the peak finder selects new points to anchor to, so I don't think it's working all that great, but maybe I goofed it up. With a litle more knowlege under my belt, I am thinking  that interpolation should be done first (adding well-estimated points between the originals), then look for the steepest slopes. Then the jerkeyness would be less because the steepest slope finder would be snapping between more closely spaced points.
+I do not fully understand the filiment width subpixel code, but I do understand it finds the steepest slope on the left and right of the "notch" visible in the data plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. In response to small movements of the shadow, it moves between the original data points smoothly for a bit, then it jerks as the peak finder selects new points to anchor to, so I don't think it's working all that great, but maybe I goofed it up. 
+
+Update: With a litle more knowlege under my belt, I am thinking that interpolation should be done first (adding well-estimated points between the original points), then look for the steepest slopes. Then the jerkeyness would be less because the steepest slope finder would be snapping between the new, more closely spaced points.
 
 My "center of shadow" instead of "width of shadow" mod:
 
