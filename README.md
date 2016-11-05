@@ -72,6 +72,8 @@ The sensor consists of a linear array of 256 photodiodes. The sensor pixels are 
 You may notice 60 or 120 hertz flicker from certain light sources. 
 The AMS website page for the part has a white paper that shows some ways to filter such noise, but often you can use a steady light source to eliminate the problem.
 
+I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
+
 Processing XY Display of Data:
 
 Shadows cast upon the sensor window by a narrow wire show up as dips in the plot, and light from a laser line projector, like the kind used to project a laser line to align picture frames on a wall, shows up as an upwards spike in the plot. Move your desklamp around over the sensor, and watch the plot's waves roll and morph like a science fiction display! 
@@ -178,9 +180,7 @@ The original code estimated the width of the notch, not the center as my mod att
 
 I draw the 2 steepest sides of the shadow's notch left and right slopes with red and green circles respectively, and the subpixel center location is marked with a white circle. Note that these additional graphical objects do not display, unless a significant, uniform, and narrow shadow is projected onto the sensor's face, AND the related code is uncommented so it runs. 
 
-I use an overhead lamp and insulated jumper wire or rod for casting shadows upon the sensor, but be careful not to short out your circuit with bare metal objects.
-
-The original samples must be spread out on the screen for the subpixel location to reveal the additional accuracy in a way that isn't overly compressed, yet the screen is only so big so we are kinda limited to properly seeing the subpixel action without a zoom feature. 
+The original samples must be spread out on the screen for subpixel location to be visible, but the screen is only so big so we are rather limited without a zoom feature.
 
 WIDTH_PER_PT sets the horizontal spacing of sensor data points on the screen. With this higher than 2, we start to see the subpixel center location resolve better. A future version could narrow the displayed region of interest, so one can zoom in on the subpixels with more screen resolution without the entire Processing display window ending up being wider than the screen. 
 
