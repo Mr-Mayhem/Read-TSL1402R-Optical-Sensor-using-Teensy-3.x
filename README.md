@@ -170,7 +170,7 @@ and https://www.thingiverse.com/thing:704897 which is a "remix" of the original 
 
 Subpixel Formula?
 
-I do not fully understand the formula used to subpixel estimation of filiment width, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. It seems a bit jerkey in response to small movements of the shadow, so I don't think it's all that, or maybe I goofed it up.
+I do not fully understand the filiment width subpixel code, but I understand it finds the steepest slope on the left and right of a notch in the plot, and then uses a formula to estimate the width using some flavor of interpolation. The original referred to it as quadradic interpolation. I am not a math wiz, so I can't tell. It seems a bit jerkey in response to small movements of the shadow, so I don't think it's all that, or maybe I goofed it up.
 
 My "center of shadow" instead of "width of shadow" mod:
 
