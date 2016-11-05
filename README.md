@@ -159,7 +159,7 @@ Perhaps someone out there has a more definitive answer on which drawing approach
 ===============================================================================================================================
 Processing Subpixel Resolution Notes:
 ===============================================================================================================================
-Note: The subpixel code is experimental and tempermental. I am exploring ways to replace the current subpixel code with something better. 
+Note: The subpixel code is experimental and temperamental. I am exploring ways to replace the current subpixel code with something better. 
 
 I will announce here when I have better sub-pixel code working. It may be awhile, but this remains my focus 
 so I can learn me some DSP.
