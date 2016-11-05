@@ -177,8 +177,10 @@ I do not fully understand the filiment width subpixel code, but I do understand 
 Update: With a litle more knowlege under my belt, I am thinking that interpolation should be done first (adding well-estimated points between the original points), then look for the steepest slopes. Then the jerkeyness would be less because the steepest slope finder would be snapping between the new, more closely spaced points. 
 
 See a brief page containing interpolation code examples here: http://paulbourke.net/miscellaneous/interpolation/
+If you click his name, there are some funny jokes on his miscellaneous page. One example:
 
-My "center of shadow" instead of "width of shadow" mod:
+Question. Why did the computer programmer die in the shower?
+Answer. The instructions on the shampoo bottle read: "Lather, Rinse, Repeat" lol.
 
 The original code estimated the width of the notch, not the center as my mod attempts to do- I just divide the width by half and add that to the left side "steepest slope" position. Kind of a guess on my part there.
 
