@@ -25,10 +25,10 @@ static final int NPIXELS = 256;
 
 // number of screen pixels for each data point, used for drawing plot 
 // and dimmest pixel
-static final int WIDTH_PER_PT = 1;
+static final int WIDTH_PER_PT = 2;
 
-// drives screen height, which = 1024 / windowScaleDiv (the highest sensor reading)
-static final int windowScaleDiv = 16;
+// drives screen height, which = 1024 / SCREEN_HEIGHT (the highest sensor reading)
+static final int SCREEN_HEIGHT = 16;
  
 // screen width = total pixels * 3 + 3
 final int SCREEN_WIDTH = NPIXELS*WIDTH_PER_PT;
@@ -98,14 +98,14 @@ float sensorPixelsPerMM = 15.74803149606299;
 float sensorWidthAllPixels = 16.256; // millimeters
 
 float widthsubpixellp = 2;
-
+int captureCount = 0;
 // set serial port object
 Serial myPort;  
 
 void setup() 
 {
   // Set up main window
-  surface.setSize(SCREEN_WIDTH, (4096/windowScaleDiv) + 55); // screen width, height
+  surface.setSize(SCREEN_WIDTH, (4096/SCREEN_HEIGHT) + 55); // screen width, height
   background(0); // Arduino green color
   strokeWeight(1); // thickness of lines and outlines
   stroke(255); // white lines and outlines
@@ -137,15 +137,16 @@ void draw() {
       }
       background(0); // clear the canvas
       fill(255);
-      text(chartRedraws, 10, 30);
+      text(chartRedraws, 10, 50);
       // show amount of bytes waiting in the serial buffer
-      text(availableBytesDraw, 50, 30);
+      text(availableBytesDraw, 50, 50);
       
       //text(frameRate, 200, 22);
 
       // color the receive status indicator white to indicate a successful serial data read
-      //fill(255);
-      //rect(10, 10, 12, 12);
+      stroke(255);
+      fill(255);
+      rect(10, 15, 12, 12);
       
       //if (calRequestFlag) { // if a calibration was requested via mouseclick
       //  setCoefficients(); //set the calibration coefficients
@@ -170,7 +171,7 @@ void draw() {
         // Plot a point on the canvas for this pixel
         stroke(255);
         //fill(255);
-        point(i*WIDTH_PER_PT, height - pixArray[i]/windowScaleDiv);
+        point(i*WIDTH_PER_PT, height - pixArray[i]/SCREEN_HEIGHT);
         
         // prepare color to correspond to sensor pixel reading
         pixelColor = pixArray[i] /16;
@@ -188,15 +189,22 @@ void draw() {
     } else {
       // we are not synced
       // color the receive status indicator red to indicate not synced;
-        //fill(255, 255, 255);
-        //rect(10, 10, 12, 12);
+      stroke(255);
+      fill(255, 255, 255);
+      rect(10, 15, 12, 12);
     }
   } else {
       // color the receive status indicator to the background color to indicate not enough 
       // data is present in the receive serial data buffer this time around
-      //fill(0);
-      //rect(10, 10, 12, 12);
+      stroke(255);
+      fill(0);
+      rect(10, 15, 12, 12);
   }
+  //captureCount++;
+  //if (captureCount ==500) {
+  //  captureCount = 0;
+  //  saveFrame("Processing_Screen_Capture-######.png");
+  //}
 }
 
 void setCoefficients() {
@@ -334,16 +342,16 @@ void calcAndDisplaySensorShadowPos()
   // Mark minsteploc with green circle
   noFill();
   stroke(0, 255, 0);
-  ellipse(minsteploc * WIDTH_PER_PT, height-pixArray[minsteploc]/windowScaleDiv, WIDTH_PER_PT, WIDTH_PER_PT);
+  ellipse(minsteploc * WIDTH_PER_PT, height-pixArray[minsteploc]/SCREEN_HEIGHT, WIDTH_PER_PT, WIDTH_PER_PT);
  
   // Mark center of width ((filWidth/2) + minsteploc) with white circle
   
   stroke(255);
-  ellipse(subPixelX, height-pixArray[filPos]/windowScaleDiv, WIDTH_PER_PT, WIDTH_PER_PT);
+  ellipse(subPixelX, height-pixArray[filPos]/SCREEN_HEIGHT, WIDTH_PER_PT, WIDTH_PER_PT);
 
   // Mark maxsteploc with red circle
   stroke(255, 0, 0);
-  ellipse(maxsteploc * WIDTH_PER_PT, height-pixArray[maxsteploc]/windowScaleDiv, WIDTH_PER_PT, WIDTH_PER_PT);      
+  ellipse(maxsteploc * WIDTH_PER_PT, height-pixArray[maxsteploc]/SCREEN_HEIGHT, WIDTH_PER_PT, WIDTH_PER_PT);      
       
     if (widthsubpixel > 0)
     {
