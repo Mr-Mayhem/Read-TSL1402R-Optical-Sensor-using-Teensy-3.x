@@ -69,7 +69,7 @@ void setup()
 
 void loop() 
 {
-  delayMicroseconds(3000);
+  delay(50);
   Sensor.read(sensorByteArray, 512);
   Serial.write(PREFIX); // PREFIX
   Serial.write(sensorByteArray, 512);
