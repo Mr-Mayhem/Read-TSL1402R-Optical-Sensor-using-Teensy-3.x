@@ -54,16 +54,6 @@ final int N_BYTES_PER_SENSOR_FRAME_PLUS1 = N_BYTES_PER_SENSOR_FRAME + 1;
 final int PREFIX = 0xFF;  
 
 // ==============================================================================================
-// Global Variables:
-
-// used for upscaling integers prior to mult or division so we don't need slower floating point
-final int MathMultiplier = 256;   
-
-final int SERIAL_NOT_ENOUGH_BYTES = 0;
-final int SERIAL_SYNCING = 1;
-final int SERIAL_READ_OK = 2;
-
-// ==============================================================================================
 // Arrays:
 
 // array of raw serial data bytes
@@ -74,6 +64,16 @@ int[] pixArray = new int[NPIXELS + 3];
 
 // array of integer coefficients for calibrating data
 int[] calCoefficients = new int[NPIXELS];  
+
+// ==============================================================================================
+// Global Variables:
+
+// used for upscaling integers prior to mult or division so we don't need slower floating point
+final int MathMultiplier = 256;   
+
+final int SERIAL_NOT_ENOUGH_BYTES = 0;
+final int SERIAL_SYNCING = 1;
+final int SERIAL_READ_OK = 2;
 
 // global sum of all sensor values (used for calibration)
 int pixArraySum = 0; 
