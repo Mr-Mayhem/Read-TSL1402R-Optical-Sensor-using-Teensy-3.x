@@ -14,7 +14,7 @@ See: https://github.com/Mr-Mayhem/Teensy_36_TSL1402R_To_Serial/
 // binary stream from a corresponding Arduino or Teensy sensor reader sketch.
 
 // This version includes different serial port code, using buffer until and serial event, 
-// which avoids a long start-up pause.
+// which avoids a long start-up pause and latency.
 
 // Added an interpolation feature, so setting NUM_INTERP_POINTS > 0 will draw green
 // colored points in-between the original data points. They are stored in the data
@@ -251,7 +251,7 @@ void draw() {
         int interpPtr = Raw_Data_Ptr_A + innerPtr;
         //println("innerPtr: " + innerPtr + " interpPtr: " + interpPtr + " muValue: " + muValue);
         
-        data_Array[interpPtr] = int(Breeuwsma_Catmull_Rom_Interpolate(data_Array[Raw_Data_Ptr_A], data_Array[Raw_Data_Ptr_B], data_Array[Raw_Data_Ptr_C], data_Array[Raw_Data_Ptr_D], muValue));
+        data_Array[interpPtr] = int(CubicInterpolate(data_Array[Raw_Data_Ptr_A], data_Array[Raw_Data_Ptr_B], data_Array[Raw_Data_Ptr_C], data_Array[Raw_Data_Ptr_D], muValue));
  
         // scale the offset for the screen
         int scaledXOffset = int(map(innerPtr, 0, RAW_DATA_SPACING, 0, SCREEN_X_MULTIPLIER)); 
