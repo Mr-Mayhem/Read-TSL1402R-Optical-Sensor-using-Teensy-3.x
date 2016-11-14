@@ -29,15 +29,15 @@ This includes a Teensy-centric Arduino class library for reading the TSL1402R se
 Latest improvements:
 ===============================================================================================================================
 
-// This version includes different serial port code, using bufferuntil and serialevent, 
-// which avoids a long start-up pause and latency.
+This version includes different serial port code, using bufferuntil and serialevent, 
+which avoids a long start-up pause and latency.
 
-// Added an interpolation feature, so setting NUM_INTERP_POINTS > 0 will draw green
-// colored points in-between the original data points. They are stored in the data
-// array alongside the original data. (The original data is spaced out in the array, 
-// to allow room for the additional interpolated points) This setup is just for now, 
-// soon, to gain efficiency, we will only interpolate the 'interesting data' where 
-// the shadow is found, after some other soon-to-be-added DSP steps.
+Added an interpolation feature, so setting NUM_INTERP_POINTS > 0 will draw green
+colored points in-between the original data points. They are stored in the data
+array alongside the original data. (The original data is spaced out in the array, 
+to allow room for the additional interpolated points) This setup is just for now, 
+soon, to gain efficiency, we will only interpolate the 'interesting data' where 
+the shadow is found, after some other soon-to-be-added DSP steps.
 
 ===============================================================================================================================
 Future improvements:
