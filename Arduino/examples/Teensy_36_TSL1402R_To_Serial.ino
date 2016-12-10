@@ -62,14 +62,19 @@ TSL1402R Sensor(CLKpin, SIpin, Apin1, Apin2);  //sensor object
 
 void setup() 
 {
-  Serial.begin(115200);
+  // always is 12.5 megabits per second (12500000) on Teensy 3.6, despite this setting
+  Serial.begin(12500000);
   initADC();
-  Sensor.ExposureMicroseconds = 500;
+
+  // Set the time light is collected before starting read out
+  Sensor.ExposureMicroseconds = 750;
 }
 
 void loop() 
 {
-  // delay(5);
+  //delay(100); // I slow Teensy 3.6 down so the Processing sketch can keep up. 
+  // (Adjust or comment out as needed.)
+  
   Sensor.read(sensorByteArray, 512);
   Serial.write(PREFIX); // PREFIX
   Serial.write(sensorByteArray, 512);
