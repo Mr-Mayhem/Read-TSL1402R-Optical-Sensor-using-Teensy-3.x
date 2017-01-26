@@ -88,7 +88,7 @@ void TSL1402R::read(uint8_t * data, uint32_t len)
 
   // The integration time of the current program / measurement cycle is ~3ms (On Arduino 16 Mhz). 
   //If a larger timeb of integration is wanted, uncomment the next line:
-  delayMicroseconds(ExposureMicroseconds); // <-- Add 500 microseconds integration time
+  delayMicroseconds(ExposureMicroseconds); // <-- Add ExposureMicroseconds microseconds integration time
 
   // Stop the ongoing integration of light quanta from each photodiode by clocking in a new 
   //SI pulse into the sensors register:
